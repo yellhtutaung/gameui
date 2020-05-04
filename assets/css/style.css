@@ -1,0 +1,41 @@
+body{
+    /*padding: 0;*/
+    /*margin: 0;*/
+    /*box-sizing: border-box;*/
+}
+
+body{
+    background-image: url("../images/bg/blurbg1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1 {
+    -webkit-text-stroke: 1px black;
+    color: white;
+    text-shadow:
+    3px 3px 0 #000,
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+.arrow-indicator{
+    transition: 0.5;
+}
+.arrow-indicator:hover{
+    transform: scale();
+}
+
+.mt-custom{
+    margin: 150px 0 0 0;
+}
+
+
+
+.car-img-control{
+
+    width: 100%;
+    /*background-repeat: no-repeat;*/
+
+}

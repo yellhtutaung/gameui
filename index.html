@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NOWANTED</title>
+    <link rel="shortcut icon" href="assets/images/logo/favicon.ico">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animates.css">
+    <link rel="stylesheet" href="assets/css/bootstrap4.min.css">
+    <link rel="stylesheet" href="assets/css/material-font.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="assets/js/jquery-3.5.0.js"></script>
+    <script src="assets/js/bootstrap4.min.js"></script>
+</head>
+<style>
+    h1 {
+        -webkit-text-stroke: 1px black;
+        color: white;
+        text-shadow:
+        3px 3px 0 #000,
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+    }
+</style>
+<body>
+
+    <div class="container">
+
+        <div class="" style="margin-top: 270px;">
+
+            <div class="row align-content-center"  >
+                <div class="col"></div>
+                <div class="col"><h1 class="model-title ">Lambo2018</h1></div>
+                <div class="col"></div>
+
+            </div>
+            <div class="row ">
+                <div class="col-2">
+                    <a>
+                        <img onclick="LeftIndicator();" class="animated slideInLeft arrow-indicator p-0 m-0 w-100" src="assets/images/ganeral/left.png" alt="">
+                    </a>
+                </div>
+                <div class="col-8">
+<!--                   <h1 class="mt-2 ml-5 shadow-lg text-warning"> <b>Choise Your Vehical</b> </h1>-->
+                </div>
+                <div class="col-2">
+                    <a >
+                        <img onclick="RightIndicator();" class="animated slideInRight arrow-indicator p-0 m-0 w-100" src="assets/images/ganeral/right.png" alt="">
+                    </a>
+                </div>
+            </div>
+
+            <div class="row  p-0 m-0 " >
+                <div class="col-md-2">
+<!--                    <i class="material-icons">keyboard_backspace</i>-->
+                </div>
+                <div class=" col-md-8  col-sm-12 overflow-hidden car-img-div">
+                    <img data-present-model-val="1" class="animated slideInUp p-0 m-0 car-img-control" src="assets/images/cars/Lambo2018/2.png" alt="">
+                </div>
+                <div class="col-md-2">
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <script>
+
+           var obj = document.createElement("audio");
+           obj.autoPlay = false;
+           obj.preLoad = true;
+           obj.controls = true;
+           var CarModel = ['Lambo2018','Supra','2021GR_Supra','Chr2020','Highlander','Rav4_Hybrid'];
+
+           console.log(CarModel.length);
+
+            function LeftIndicator()
+            {
+
+                var Present = parseInt($('.car-img-control').attr("data-present-model-val"));
+                var CreatVal = Present-1;
+
+                if (CreatVal != 0){
+
+                    obj.src = "assets/sound/click/check.mp3";
+                    obj.play();
+                    console.log('This is creat --- '+CreatVal);
+                    console.log('This is array length --- '+CarModel.length);
+                    if (parseInt(CarModel.length) >= CreatVal)
+                    {
+                        console.log('reach');
+                        $(".car-img-div").html('<img data-present-model-val="'+CreatVal+'" class="animated slideInUp p-0 m-0 car-img-control" src="assets/images/cars/'+CarModel[CreatVal-1]+'/1.png" alt="">')
+
+                        // $('.car-img-control').attr("src","assets/images/cars/"+CarModel[CreatVal-1]+"/1.png");
+                        // $('.car-img-control').attr("data-present-model-val",CreatVal);
+                        $('.model-title').html(CarModel[CreatVal-1]);
+                    }
+                }else{
+                    obj.src = "assets/sound/error/error.mp3";
+                    obj.play();
+
+                }
+
+            }
+
+           function RightIndicator()
+           {
+
+               var Present = parseInt($('.car-img-control').attr("data-present-model-val"));
+               var CreatVal = Present+1;
+
+               if (parseInt(CarModel.length) >= CreatVal)
+               {
+                   obj.src = "assets/sound/click/check.mp3";
+                   obj.play();
+                   $(".car-img-div").html('<img data-present-model-val="'+CreatVal+'" class="animated slideInUp p-0 m-0 car-img-control" src="assets/images/cars/'+CarModel[CreatVal-1]+'/1.png" alt="">')
+                   // $('.car-img-control').attr("src","assets/images/cars/"+CarModel[CreatVal-1]+"/1.png");
+                   // $('.car-img-control').attr("data-present-model-val",CreatVal);
+                   $('.model-title').html(CarModel[CreatVal-1]);
+               }else {
+                   obj.src = "assets/sound/error/error.mp3";
+                   obj.play();
+               }
+
+
+           }
+
+
+        // });
+
+
+
+
+
+    </script>
+
+
+
+</body>
+</html>
